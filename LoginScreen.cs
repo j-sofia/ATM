@@ -82,12 +82,9 @@ namespace ATM
             {
                 if (existingUser.name == selectedName)
                 {
-                    //Open a new UserMenu for the user
-                    var th = new Thread(() => Application.Run(new UserMenu(existingUser)));
-                    th.SetApartmentState(ApartmentState.STA);
-                    th.Start();
-
-                    this.Close();
+                    var m = new UserMenu(existingUser);
+                    m.Show();
+                    this.Hide();
                     return;
                 }
             }

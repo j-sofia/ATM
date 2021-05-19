@@ -32,7 +32,7 @@ namespace ATM
             this.ActiveControl = rboxAmount;
         }
 
-        void Set_Welcome()
+        private void Set_Welcome()
         {
             if (String.IsNullOrWhiteSpace(user.welcome_message))
             {
@@ -47,23 +47,25 @@ namespace ATM
         /// <summary>
         /// Sets the event text, example "Deposited $10.00."
         /// </summary>
-        /// <param name="eve"></param>
-        void Set_Event(String eve)
+        /// <param name="eve">String to display</param>
+        private void Set_Event(String eve)
         {
             this.lblEvent.Text = eve;
         }
 
-        void Set_Balance()
+        /// <summary>
+        /// Sets the balance text box to user.balance
+        /// </summary>
+        private void Set_Balance()
         {
             this.boxBal.Text = "$" + user.balance.ToString("0.00");
         }
 
         /// <summary>
-        /// Rounds a decimal number DOWN to the nearest place
+        /// Rounds a decimal number DOWN (floor) to the nearest place
         /// </summary>
         /// <param name="num">Decimal number to round</param>
         /// <param name="decimalPlaces">How many places to round to</param>
-        /// <returns></returns>
         private static decimal RoundDown(decimal num, int decimalPlaces)
         {
             Decimal power;
@@ -141,11 +143,9 @@ namespace ATM
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            var th = new Thread(() => Application.Run(new LoginScreen()));
-            th.SetApartmentState(ApartmentState.STA); // Deprecation Fix
-            th.Start();
-
-            this.Close();
+            var m = new LoginScreen();
+            m.Show();
+            this.Hide();
         }
     }
 }

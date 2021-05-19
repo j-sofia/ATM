@@ -37,7 +37,7 @@ namespace ATM
             this.lblWelcome = new System.Windows.Forms.Label();
             this.boxName = new System.Windows.Forms.TextBox();
             this.boxWelcome = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.lblLine = new System.Windows.Forms.Label();
             this.lblEvent = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataUsers)).BeginInit();
@@ -127,15 +127,15 @@ namespace ATM
             this.boxWelcome.Size = new System.Drawing.Size(285, 75);
             this.boxWelcome.TabIndex = 8;
             // 
-            // button1
+            // btnCreate
             // 
-            this.button1.Location = new System.Drawing.Point(316, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 72);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreate.Location = new System.Drawing.Point(316, 328);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(72, 72);
+            this.btnCreate.TabIndex = 9;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblLine
             // 
@@ -159,7 +159,7 @@ namespace ATM
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 413);
             this.Controls.Add(this.lblLine);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.boxWelcome);
             this.Controls.Add(this.boxName);
             this.Controls.Add(this.lblWelcome);
@@ -190,7 +190,7 @@ namespace ATM
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.TextBox boxName;
         private System.Windows.Forms.TextBox boxWelcome;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lblLine;
         private System.Windows.Forms.Label lblEvent;
     }
