@@ -13,7 +13,7 @@ namespace ATM
         /// </summary>
         /// <param name="userlist">List of Users</param>
         /// <returns>A DataTable of names</returns>
-        private static DataTable ConvertToDatatable(List<User> userlist)
+        private static DataTable UserListToDatatable(List<User> userlist)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("name");
@@ -38,12 +38,12 @@ namespace ATM
         private void AddUser(User user)
         {
             Program.Users.Add(user);
-            dataUsers.DataSource = ConvertToDatatable(Program.Users);
+            dataUsers.DataSource = UserListToDatatable(Program.Users);
         }
 
         private void LoginScreen_Load(object sender, EventArgs e)
         {
-            dataUsers.DataSource = ConvertToDatatable(Program.Users);
+            dataUsers.DataSource = UserListToDatatable(Program.Users);
         }
 
         private void button1_Click(object sender, EventArgs e)

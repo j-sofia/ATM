@@ -26,5 +26,25 @@ namespace ATM
 
             Application.Run(new LoginScreen());
         }
+
+        /// <summary>
+        /// Rounds a decimal number DOWN (floor) to the nearest place
+        /// </summary>
+        /// <param name="num">Decimal number to round</param>
+        /// <param name="decimalPlaces">How many places to round to</param>
+        public static decimal RoundDown(decimal num, int decimalPlaces)
+        {
+            Decimal power;
+            try
+            {
+                power = Convert.ToDecimal(Math.Pow(10, decimalPlaces));
+                return Math.Floor(num * power) / power;
+            }
+            catch (Exception)
+            {
+                return Math.Round(num, decimalPlaces);
+            }
+
+        }
     }
 }

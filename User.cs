@@ -12,40 +12,44 @@ namespace ATM
         public String welcome_message { get; set; }
         public decimal balance { get; set; }
 
-        public User (String Name, String Welcome_message, decimal Balance)
+        public const int OK = 0;
+        public const int ERROR = 1;
+
+        public User(String Name, String Welcome_message, decimal Balance)
         {
             name = Name;
             welcome_message = Welcome_message;
             balance = Balance;
         }
 
-        public bool deposit(decimal amount)
+        public int deposit(decimal amount)
         {
-            if (amount <= 0)  return false;
-
             try
             {
-                balance += amount;
-            } catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public bool withdraw(decimal amount)
-        {
-            if (amount <= 0 || balance - amount < 0) return false;
-
-            try
-            {
-                balance -= amount;
+                amount = Program.RoundDown(amount, 2);
             }
             catch (Exception)
             {
-                return false;
+                return ERROR;
             }
-            return true;
+            if (amount < 0) return ERROR;
+            balance += amount;
+            return OK;
+        }
+
+        public int withdraw(decimal amount)
+        {
+            try
+            {
+                amount = Program.RoundDown(amount, 2);
+            }
+            catch (Exception)
+            {
+                return ERROR;
+            }
+            if (amount < 0) return ERROR;
+            balance -= amount;
+            return OK;
         }
     }
 }
